@@ -1,6 +1,6 @@
-<section class="mt-5 mb-5">
+<section class="menu_categories mt-4">
     <div class="container">
-        <div class="row test">
+        <div class="row">
             <div class="col-sm-12 col-md-5 col-lg-3">
                 <div class="dropdown">
                     <button class="btn bg-color-default dropdown-toggle w-100 pb-3 pt-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,7 +27,7 @@
                 <ul class="nav mt-10">
                     <?php if(isset($categorie_filter)): ?>
                         <?php foreach($categorie_filter as $item): ?>
-                            <li class="nav-item">
+                            <li class="nav-item border-end border-secondary">
                                 <a class="nav-link my-color" href="<?=$base;?>/categories/<?=$item['id'];?>">
                                     <?=$item['name'];?>
                                 </a>

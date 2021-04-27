@@ -17,7 +17,7 @@
                 </div>
             <?php endif; ?>
         </div>
-        <div class="product-image pt-3 d-flex justify-content-center">
+        <div class="product-image d-flex justify-content-center">
             <img src="<?=$base;?>/media/products/<?=$images[0]['url'];?>" width="70%" alt="">
         </div>
         <div class="product-name"><?=$name;?></div>
