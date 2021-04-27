@@ -57,7 +57,10 @@
     </nav>
 </header>
 
-<?=$render('jumbotron');?>
+<?=$render('jumbotron', [
+    'categories' => $categories
+]);?>
+
 <?php if(isset($categorie_filter)): ?>
     <?=$render('menu_categories', [
         'categories' => $categories,

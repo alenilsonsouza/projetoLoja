@@ -37,6 +37,8 @@
                         <?=$this->lang->get("PRICE");?>
                     </h3>
                     <div class="mt-2 mb-3">
+                        <input type="hidden" id="slider0" name="filter[slider0]" value="<?=$slider0;?>"/>
+                        <input type="hidden" id="slider1" name="filter[slider1]" value="<?=$slider1;?>"/>
                         <input type="text" id="amount" readonly class="border-0 bg-transparent default-color no-outline fs-6 w-100 fw-bold"/>
                         <div id="slider-range" class="m-2"></div>
                     </div>

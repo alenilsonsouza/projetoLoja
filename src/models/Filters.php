@@ -13,6 +13,8 @@ class Filters extends Model
 
         $array = [
             'brands' => [],
+            'slider1' => 0,
+            'slider0' => 0,
             'maxslider' => 1400,
             'stars' => [
 				'0' => 0,
@@ -44,7 +46,18 @@ class Filters extends Model
         }
 
         // Filtro preço
+        if(isset($filters['slider0'])) {
+            $array['slider0'] = $filters['slider0'];
+        }
+
+        if(isset($filters['slider1'])) {
+            $array['slider1'] = $filters['slider1'];
+        }
+
         $array['maxslider'] = $products->getMaxPrice($filters);
+        if($array['slider1'] == '0') {
+            $array['slider1'] = $array['maxslider'];
+        }
 
         // Filtro estrelas
         $star_products = $products->getListOfStars($filters);

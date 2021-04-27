@@ -1,5 +1,5 @@
 <?=$render('header', [
-    'categories' => $categories
+    'categories' => $categories,
 ]);?>
 
 <section class="mt-4 border-top border-secondary">
@@ -12,7 +12,9 @@
                     'stars' => $filters['stars'],
                     'sale' => $filters['sale'],
                     'options' => $filters['options'],
-                    'filters_selected' => $filters_selected
+                    'filters_selected' => $filters_selected,
+                    'slider0' => $filters['slider0'],
+                    'slider1' => $filters['slider1']
                 ]);?>
             </div>
             <div class="col-sm-12 col-md-7 col-lg-9">
@@ -37,7 +39,11 @@
                 <ul class="pagination pagination-md mt-2 mb-5">
                     <?php for($q = 1; $q <= $number_of_pages; $q++): ?>
                         <li class="page-item <?=($current_page==$q)?'active':'';?>">
-                            <a class="page-link" href="<?=$base;?>/?page=<?=$q;?>">
+                            <a class="page-link" href="<?=$base;?>/?<?php 
+                                    $pag_array = $_GET;
+                                    $pag_array['page'] = $q;
+                                    echo http_build_query($pag_array);
+                                ?>">
                                 <?=$q;?>
                             </a>
                         </li>

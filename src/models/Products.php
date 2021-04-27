@@ -92,11 +92,8 @@ class Products extends Model
 
     public function getMaxPrice($filters = [])
     {
-        $where = $this->buildWhere($filters);
-        $sql = "SELECT MAX(price) as price FROM products WHERE ".implode(' AND ', $where)."";
-
+        $sql = "SELECT MAX(price) as price FROM products";
         $sql = $this->pdo->prepare($sql);
-        $this->bindWhere($filters, $sql);
         $sql->execute();
 
         if($sql->rowCount() > 0) {
@@ -208,6 +205,14 @@ class Products extends Model
 			$where[] = "id IN (select id_product from products_options where products_options.p_value IN ('".implode("','", $filters['options'])."'))";
 		}
 
+        if(!empty($filters['slider0'])) {
+            $where[] = "price >= :slider0";
+        }
+
+        if(!empty($filters['slider1'])) {
+            $where[] = "price <= :slider1";
+        }
+
         return $where;
     }
 
@@ -215,6 +220,14 @@ class Products extends Model
     {
         if(!empty($filters['category'])) {
             $sql->bindValue(':id_category', $filters['category']);
+        }
+
+        if(!empty($filters['slider0'])) {
+            $sql->bindValue(':slider0', $filters['slider0']);
+        }
+
+        if(!empty($filters['slider1'])) {
+            $sql->bindValue(':slider1', $filters['slider1']);
         }
     }
 

@@ -17,16 +17,29 @@
                         </div>
                     </div>
                     <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control p-2" aria-label="Text input with dropdown button">
-                            <button class="btn bg-color-default dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?=$this->lang->get("ALLCATEGORIES");?>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-start">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                            </ul>
-                        </div>
+                        <form action="<?=$base;?>/busca" method="GET">
+                            <div class="input-group border border-secondary rounded-1">
+                                <input type="text" name="s" class="form-control p-2 border-0">                                
+                                <select class="p-2 no-outline border-0">
+                                    <option value="">
+                                        <?=$this->lang->get("ALLCATEGORIES");?>
+                                    </option>
+                                    <?php foreach($categories as $item): ?>                                    
+                                        <option value="<?=$item['id'];?>">
+                                            <?=$item['name'];?>
+                                        </option>
+                                    <?php endforeach; ?>
+
+                                    <?php if(count($item['subs']) > 0): ?>
+                                        <?=$render('search_subcategory', [
+                                            'subs' => $item['subs'],
+                                            'level' => 1
+                                        ]);?>
+                                    <?php endif; ?>
+                                </select>
+                                <input type="submit" class="btn bg-color-default" value="Pesquisar"/>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

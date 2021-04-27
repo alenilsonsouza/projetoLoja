@@ -69,7 +69,6 @@
     <script>
         let BASE_URL = '<?=$base;?>';
         let maxslider = '<?=$maxslider;?>';
-        let slidervalues = [ 0, maxslider ];
     </script>
     <script src="<?=$base;?>/assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?=$base;?>/assets/js/jquery-ui.min.js"></script>
