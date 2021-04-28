@@ -199,8 +199,10 @@
         <h2 class="fs-4 mt-2">
             <?=$this->lang->get("FEATUREDPRODUCTS");?>
         </h2>
-        <div class="border border-secondary p-3">
-            ...
+        <div class="d-flex flex-column">
+            <?=$render('widget', [
+                'list' => $widget_featured1
+            ]);?>
         </div>
     </div>
     

@@ -1,9 +1,9 @@
-<section class="menu_categories mt-4">
+<section class="mt-4">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-5 col-lg-3">
                 <div class="dropdown">
-                    <button class="btn bg-color-default dropdown-toggle w-100 pb-3 pt-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn bg-color-default dropdown-toggle w-100 p-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <?=$this->lang->get("SELECTCATEGORY");?>
                     </button>
                     <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">

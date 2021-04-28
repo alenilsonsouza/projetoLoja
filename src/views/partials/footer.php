@@ -5,44 +5,49 @@
                 <h2 class="fs-5 mt-2">
                     <?=$this->lang->get("FEATUREDPRODUCTS");?>
                 </h2>
-                <div class="border border-secondary p-3">
-                    ...
+                <div class="d-flex flex-column">
+                    <?=$render('widget', [
+                        'list' => $widget_featured2
+                    ]);?>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <h2 class="fs-5 mt-2">
                     <?=$this->lang->get("ONSALEPRODUCTS");?>
                 </h2>
-                <div class="border border-secondary p-3">
-                    ...
+                <div class="d-flex flex-column">
+                    <?=$render('widget', [
+                        'list' => $widget_sale
+                    ]);?>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <h2 class="fs-5 mt-2">
-                    <?=$this->lang->get("FEATUREDPRODUCTS");?>
+                    <?=$this->lang->get("TOPRATEDPRODUCTS");?>
                 </h2>
-                <div class="border border-secondary p-3">
-                    ...
+                <div class="d-flex flex-column">
+                    <?=$render('widget', [
+                        'list' => $widget_toprated
+                    ]);?>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-6 col-md-8 align-self-center m-auto">
-                <div class="input-group">
-                    <div class="input-group input-group-lg mt-5">
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="<?=$this->lang->get("SUBSCRIBETEXT");?>"
-                            aria-label="Recipient's username"
-                            aria-describedby="button-addon2"
-                        />
-                        <button class="btn bg-color-default fs-6" type="button" id="button-addon2">
-                            <?=$this->lang->get("SUBSCRIBEBUTTON");?>
-                        </button>
+        <div class="row mt-3">
+            <div class="col-sm-6 col-md-7 align-self-center m-auto">
+                
+                <!-- Begin Mailchimp Signup Form -->
+                <form action="https://gmail.us1.list-manage.com/subscribe/post?u=c8a61506e6121a4b59a6f9b2c&amp;id=619357e020" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+                    <div class="input-group mt-5 mb-4">                    
+                    <input type="email" value="" name="EMAIL" class="required email form-control p-3" placeholder="<?=$this->lang->get("SUBSCRIBETEXT");?>" id="mce-EMAIL">
+                    <input type="hidden" name="b_c8a61506e6121a4b59a6f9b2c_619357e020" tabindex="-1" value="">
+                    <input type="submit" value="<?=$this->lang->get("SUBSCRIBEBUTTON");?>" name="subscribe" id="mc-embedded-subscribe" class="button btn bg-color-default fs-6">
                     </div>
-                </div>
+                </form>
+
+                <!--End mc_embed_signup-->
+
+                
             </div>
         </div>
 

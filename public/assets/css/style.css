@@ -32,6 +32,10 @@ ul {
     display: flex;
 }
 
+.fs-price-widget {
+    font-size: 14px;
+}
+
 .my-color {
     color: #333;
 }
@@ -74,6 +78,17 @@ ul {
     max-height:200px;
     width: auto;
     height: auto;
+}
+
+.img-default-small {
+    max-width: 100px;
+    max-height: 70px;
+}
+
+.fs-my {
+    font-size: 13px;
+    color: #999;
+    margin-top: 1px;
 }
 
 .product-item {
@@ -154,4 +169,17 @@ ul {
 
 .margin-1 {
     margin-top: 1px;
+}
+
+@media screen and (max-width: 440px) {
+    .mobile-flex {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .mobile-margin {
+        margin-top: 10px;
+    }
 }

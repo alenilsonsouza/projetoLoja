@@ -138,9 +138,18 @@ class Products extends Model
         return $array;
     }
 
-    public function getList($offset = 0, $limit = 3, Array $filters = [])
+    public function getList($offset = 0, $limit = 3, Array $filters = [], $random = false)
     {
         $array = [];
+        $orderBySql = '';
+        if($random) {
+            $orderBySql = "ORDER BY RAND()";
+        }
+
+        if(!empty($filters['toprated'])) {
+            $orderBySql = "ORDER BY rating DESC";   
+        }
+
         $where = $this->buildWhere($filters);
 
         $sql = "SELECT *,
@@ -150,6 +159,7 @@ class Products extends Model
                 as category_name
         FROM products
         WHERE ".implode(' AND ', $where)."
+        ".$orderBySql."
         LIMIT $offset, $limit";
 
         $sql = $this->pdo->prepare($sql);
@@ -199,6 +209,10 @@ class Products extends Model
 
         if(!empty($filters['sale'])) {
             $where[] = "sale = '1'";
+        }
+
+        if(!empty($filters['featured'])) {
+            $where[] = "featured = '1'";
         }
 
         if(!empty($filters['options'])) {

@@ -26,7 +26,11 @@ class CategoriesController extends Controller
             }
 
             $offset = ($current_page * $limit) - $limit;
-            $filters = ['category' => $atts['id']];
+            
+            if(!empty($_GET['filter']) && is_array($_GET['filter'])) {
+                $filters = $_GET['filter'];
+            }
+            $filters[] = ['category' => $atts['id']];
 
             $data['categorie_filter'] = $categories->getCategorieTree($atts['id']);
             $data['list'] = $products->getList($offset, $limit, $filters);
@@ -34,8 +38,15 @@ class CategoriesController extends Controller
             $data['number_of_pages'] = ceil($data['total_items'] / $limit);
             $data['current_page'] = $current_page;
             $data['categories'] = $categories->getList();
-            $data['filters'] = $new_filters->getFilters();
-            $data['id_category'] = $atts['id'];
+
+            $data['widget_featured1'] = $products->getList(0, 5, ['featured' => '1'], true);
+            $data['widget_featured2'] = $products->getList(0, 3, ['featured' => '1'], true);
+            $data['widget_sale'] = $products->getList(0, 3, ['sale' => '1'], true);
+            $data['widget_toprated'] = $products->getList(0, 3, ['toprated' => '1']);
+
+            $data['filters'] = $new_filters->getFilters($filters);
+            $data['filters_selected'] = $filters;
+            $data['id_category'] = $atts['id'];            
 
             $this->render('categories', $data);   
         } else {

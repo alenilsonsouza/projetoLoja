@@ -2,7 +2,7 @@
     'categories' => $categories,
 ]);?>
 
-<section class="mt-4 border-top border-secondary">
+<section class="mt-4 border-top border-secondary mb-5">
     <div class="container">
         
         <div class="row">
@@ -14,25 +14,17 @@
                     'options' => $filters['options'],
                     'filters_selected' => $filters_selected,
                     'slider0' => $filters['slider0'],
-                    'slider1' => $filters['slider1']
+                    'slider1' => $filters['slider1'],
+                    'widget_featured1' => $widget_featured1
                 ]);?>
             </div>
             <div class="col-sm-12 col-md-7 col-lg-9">
                 <div class="mb-5"></div>
                 <div class="row">
-                    <?php $a = 0; ?>
                     <?php foreach($list as $key => $product_item): ?>
                         <div class="col-lg-6 col-xl-4 col-md-12 col-sm-12">
                             <?=$render('product_item', $product_item);?>
                         </div>
-                        <?php
-                            if($a >= 2) {
-                                $a = 0;
-                                echo '</div><div class="row">';
-                            } else {
-                                $a++;
-                            }
-                        ?>
                     <?php endforeach; ?>
                 </div>
                 
@@ -55,4 +47,9 @@
     </div>
 </section>
 
-<?=$render('footer', ['maxslider' => $filters['maxslider']]);?>
+<?=$render('footer', [
+    'maxslider' => $filters['maxslider'],
+    'widget_sale' => $widget_sale,
+    'widget_featured2' => $widget_featured2,
+    'widget_toprated' => $widget_toprated
+]);?>
