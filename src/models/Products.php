@@ -213,6 +213,10 @@ class Products extends Model
             $where[] = "price <= :slider1";
         }
 
+        if(!empty($filters['search_term'])) {
+            $where[] = "name LIKE :search_term";
+        }
+
         return $where;
     }
 
@@ -228,6 +232,10 @@ class Products extends Model
 
         if(!empty($filters['slider1'])) {
             $sql->bindValue(':slider1', $filters['slider1']);
+        }
+
+        if(!empty($filters['search_term'])) {
+            $sql->bindValue(':search_term', '%'.$filters['search_term'].'%');
         }
     }
 

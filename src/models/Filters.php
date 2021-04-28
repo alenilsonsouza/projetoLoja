@@ -12,6 +12,7 @@ class Filters extends Model
         $products = new Products();
 
         $array = [
+            'search_term' => '',
             'brands' => [],
             'slider1' => 0,
             'slider0' => 0,
@@ -27,6 +28,11 @@ class Filters extends Model
             'sale' => 0,
             'options' => []
         ];
+
+        // Search term
+        if(isset($filters['search_term'])) {
+            $array['search_term'] = $filters['search_term'];
+        }
 
         $array['brands'] = $brands->getList();
         $brand_products = $products->getListOfBrands($filters);

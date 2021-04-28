@@ -17,15 +17,16 @@
                         </div>
                     </div>
                     <div>
-                        <form action="<?=$base;?>/busca" method="GET">
-                            <div class="input-group border border-secondary rounded-1">
-                                <input type="text" name="s" class="form-control p-2 border-0"/>                                
-                                <select name="categories" class="p-2 no-outline border-0">
+                        <form method="GET" action="<?=$base;?>/busca">
+                            <div class="input-group border-2 border-secondary rounded-1">
+
+                                <input type="text" name="s" value="<?php echo !empty($search_term) ? $search_term : ''; ?>" class="form-control p-2 border"/>                                
+                                <select name="category" class="p-2 no-outline border">
                                     <option value="">
                                         <?=$this->lang->get("ALLCATEGORIES");?>
                                     </option>
                                     <?php foreach($categories as $item): ?>                                    
-                                        <option value="<?=$item['id'];?>">
+                                        <option value="<?=$item['id'];?>" <?php echo ($category==$item['id']?'selected="selected"':'');?>>
                                             <?=$item['name'];?>
                                         </option>
                                     <?php endforeach; ?>
@@ -33,11 +34,12 @@
                                     <?php if(count($item['subs']) > 0): ?>
                                         <?=$render('search_subcategory', [
                                             'subs' => $item['subs'],
-                                            'level' => 1
+                                            'level' => 1,
+                                            'category' => !empty($category) ? $category : ''
                                         ]);?>
                                     <?php endif; ?>
                                 </select>
-                                <input type="submit" class="btn bg-color-default p-2" value="Pesquisar"/>
+                                <input type="submit" class="btn bg-color-default p-2 border" value="Pesquisar"/>
                             </div>
                         </form>
                     </div>

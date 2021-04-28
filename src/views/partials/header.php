@@ -58,7 +58,9 @@
 </header>
 
 <?=$render('jumbotron', [
-    'categories' => $categories
+    'categories' => $categories,
+    'search_term' => !empty($search_term) ? $search_term : '',
+    'category' => !empty($category) ? $category : ''
 ]);?>
 
 <?php if(isset($categorie_filter)): ?>
