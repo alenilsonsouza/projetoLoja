@@ -26,11 +26,8 @@ class CategoriesController extends Controller
             }
 
             $offset = ($current_page * $limit) - $limit;
-            
-            if(!empty($_GET['filter']) && is_array($_GET['filter'])) {
-                $filters = $_GET['filter'];
-            }
-            $filters[] = ['category' => $atts['id']];
+
+            $filters = ['category' => $atts['id']];
 
             $data['categorie_filter'] = $categories->getCategorieTree($atts['id']);
             $data['list'] = $products->getList($offset, $limit, $filters);

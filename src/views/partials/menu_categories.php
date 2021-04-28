@@ -34,6 +34,26 @@
                             </li>
                         <?php endforeach; ?>
                     <?php endif; ?>
+                    <li class="nav-item border-end border-secondary">
+                                <a class="nav-link my-color" href="<?=$base;?>/categories/<?=$item['id'];?>">
+                                    Todos
+                                </a>
+                            </li>
+                            <li class="nav-item border-end border-secondary">
+                                <a class="nav-link my-color" href="<?=$base;?>/categories/<?=$item['id'];?>">
+                                    Monitores
+                                </a>
+                            </li>
+                            <li class="nav-item border-end border-secondary">
+                                <a class="nav-link my-color" href="<?=$base;?>/categories/<?=$item['id'];?>">
+                                    Full HD
+                                </a>
+                            </li>
+                            <li class="nav-item border-end border-secondary">
+                                <a class="nav-link my-color" href="<?=$base;?>/categories/<?=$item['id'];?>">
+                                    Em promoção
+                                </a>
+                            </li>
                 </ul>
             </div>
         </div>
