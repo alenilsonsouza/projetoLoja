@@ -1,5 +1,7 @@
 <div class="w-100 product-item p-3 mb-4">
-    <a href="">
+
+    <!-- Link page product -->
+    <a href="<?=$base;?>/product/<?=$id;?>">
         <div class="product-tags mt-2">
             <?php if($sale == '1'): ?>
                 <div class="tag red">
@@ -33,4 +35,5 @@
             </div>
         </div>
     </a>
+    
 </div>

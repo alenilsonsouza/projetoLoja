@@ -1,4 +1,4 @@
-<section class="jumbotron d-flex align-self-center border-bottom border-secondary">
+<section class="jumbotron d-flex align-self-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 d-flex align-items-center">

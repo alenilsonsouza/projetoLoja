@@ -57,19 +57,20 @@
     </nav>
 </header>
 
+
 <?=$render('jumbotron', [
-    'categories' => $categories,
+    'categories' => !empty($categories) ? $categories : '',
     'search_term' => !empty($search_term) ? $search_term : '',
     'category' => !empty($category) ? $category : ''
 ]);?>
 
 <?php if(isset($categorie_filter)): ?>
     <?=$render('menu_categories', [
-        'categories' => $categories,
+        'categories' => !empty($categories) ? $categories : '',
         'categorie_filter' => $categorie_filter
     ]);?>
 <?php else: ?>
     <?=$render('menu_categories', [
-        'categories' => $categories
+        'categories' => !empty($categories) ? $categories : ''
     ]);?>
 <?php endif; ?>

@@ -253,4 +253,22 @@ class Products extends Model
         }
     }
 
+    public function getProductInfo($id)
+    {
+        $array = [];
+
+        $sql = "SELECT *,
+        (select brands.name from brands where brands.id = products.id_brand) as brand_name
+        FROM products WHERE id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        return $array;
+    }
+
 }
