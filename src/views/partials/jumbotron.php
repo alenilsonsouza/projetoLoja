@@ -11,7 +11,7 @@
                             <i class="fas fa-phone-alt fs-3 default-color m-1"></i>
                             (66) 95632-5814
                         </div>
-                        <div class="col-md-8 col-lg-6 d-flex align-items-center">
+                        <div class="col-md-8 col-lg-6 d-flex align-items-center justify-content-end">
                             <i class="fas fa-envelope fs-3 default-color m-1"></i>
                             <span class="fs-6">contato@meusite.com</span>
                         </div>
@@ -19,8 +19,8 @@
                     <div>
                         <form action="<?=$base;?>/busca" method="GET">
                             <div class="input-group border border-secondary rounded-1">
-                                <input type="text" name="s" class="form-control p-2 border-0">                                
-                                <select class="p-2 no-outline border-0">
+                                <input type="text" name="s" class="form-control p-2 border-0"/>                                
+                                <select name="categories" class="p-2 no-outline border-0">
                                     <option value="">
                                         <?=$this->lang->get("ALLCATEGORIES");?>
                                     </option>
@@ -37,7 +37,7 @@
                                         ]);?>
                                     <?php endif; ?>
                                 </select>
-                                <input type="submit" class="btn bg-color-default" value="Pesquisar"/>
+                                <input type="submit" class="btn bg-color-default p-2" value="Pesquisar"/>
                             </div>
                         </form>
                     </div>
